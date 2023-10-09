@@ -10,11 +10,11 @@
 int main(void)
 {
     int n;
-    int lastDigit; // Declare the variable here
+    int lastDigit; /* Declare the variable here */
 
     srand(time(0));
     n = rand() - RAND_MAX / 2;
-    lastDigit = n % 10; // Assign a value here
+    lastDigit = n % 10; /* Assign a value here */
 
     printf("Last digit of %d is %d ", n, lastDigit);
 
