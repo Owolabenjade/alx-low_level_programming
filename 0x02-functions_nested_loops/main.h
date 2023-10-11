@@ -1,6 +1,10 @@
-#ifndef MAIN_H
-#define MAIN_H
+#include "main.h"
 
-int _putchar(char c);
+/* Declare the prototype for the print_alphabet function */
+void print_alphabet(void);
 
-#endif /* MAIN_H */
+int main(void)
+{
+    print_alphabet(); // Call the print_alphabet function
+    return (0);
+}
