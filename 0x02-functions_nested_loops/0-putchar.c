@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
  * main - Entry point for the program
  *
@@ -9,6 +7,8 @@
  *
  * Return: 0 on successful execution.
  */
+#include "main.h"
+
 int main(void)
 {
 	_putchar('_');
