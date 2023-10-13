@@ -2,45 +2,43 @@
 #include "main.h"
 
 /**
- * print_remaining_days - Print the day of the year and the remaining days,
- * considering leap years.
- * @month: Month in number format.
- * @day: Day of the month.
- * @year: Year.
- *
- * Description: This function calculates and prints the day of the year and the
- * remaining days in the year, considering leap years. It checks if the given
- * date is valid and handles leap years correctly.
+ * print_remaining_days - takes a date and prints how many days are
+ * left in the year, taking leap years into account
+ * @month: month in number format
+ * @day: day of month
+ * @year: year
+ * Return: void
  */
 void print_remaining_days(int month, int day, int year)
 {
-	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+	if (month < 1 || month > 12 || day < 1 || day > 31)
 	{
-		if (month > 2)
-		{
-			day++; /*Increment day for leap years after February*/
-		}
-
-		if (day > 60)
-		{
-			day--; /*Adjust day for leap years after February 29*/
-		}
+		printf("Invalid date: %02d/%02d/%04d\n", month, day, year);
+		return;
 	}
 
-	if (day > 366 || (day == 366 && !((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
+	int days_in_month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int is_leap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+
+	if (is_leap)
 	{
-		printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+	days_in_month[2] = 29; // February has 29 days in a leap year
 	}
-	else
+
+	if (month < 1 || month > 12 || day < 1 || day > days_in_month[month])
 	{
-		printf("Day of the year: %d\n", day);
-		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
-		{
-			printf("Remaining days: %d\n", 366 - day);
-		}
-		else
-		{
-			printf("Remaining days: %d\n", 365 - day);
-		}
+	printf("Invalid date: %02d/%02d/%04d\n", month, day, year);
+	return;
 	}
+
+	int day_of_year = day;
+	for (int i = 1; i < month; i++)
+	{
+		day_of_year += days_in_month[i];
+	}
+
+	printf("Day of the year: %d\n", day_of_year);
+
+	int remaining_days = 365 + is_leap - day_of_year;
+	printf("Remaining days: %d\n", remaining_days);
 }
