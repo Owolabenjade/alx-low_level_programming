@@ -33,4 +33,7 @@ int _putchar(char c);
 int _putchar(char c);
 void print_triangle(int size);
 
+int _putchar(char c);
+long largest_prime_factor(long n);
+
 #endif /* MAIN_H */

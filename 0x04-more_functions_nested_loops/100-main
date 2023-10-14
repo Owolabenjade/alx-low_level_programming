@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+/**
+ * main - Entry point of the program
+ *
+ * Description: This program calculates and prints the largest prime factor of the number 612852475143. It calls the `largest_prime_factor` function to perform this calculation, but the specific implementation of that function is not detailed in this code.
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	long number = 612852475143;
+	long largest_prime = largest_prime_factor(number);
+
+	printf("%ld\n", largest_prime);
+	return (0);
+}
