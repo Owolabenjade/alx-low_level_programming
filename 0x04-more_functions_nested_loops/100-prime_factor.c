@@ -9,6 +9,7 @@
 long largest_prime_factor(long n)
 {
 	long largest_prime = -1;
+
 	while (n % 2 == 0)
 	{
 		largest_prime = 2;
@@ -26,5 +27,5 @@ long largest_prime_factor(long n)
 	{
 		largest_prime = n;
 	}
-	return largest_prime;
+	return (largest_prime);
 }
