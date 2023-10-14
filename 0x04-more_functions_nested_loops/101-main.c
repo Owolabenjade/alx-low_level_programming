@@ -3,7 +3,10 @@
 /**
  * main - Entry point of the program
  *
- * Description: This program demonstrates the usage of the `print_number` function by calling it with different integer arguments. The `print_number` function is expected to display the integers provided as output using the `_putchar` function.
+ * Description: This program demonstrates the usage of the `print_number`
+ * function by calling it with different integer arguments.
+ * The `print_number` function is expected to display the integers provided
+ * as output using the `_putchar` function.
  *
  * Return: Always 0 (Success)
  */
