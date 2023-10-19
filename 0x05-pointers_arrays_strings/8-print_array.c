@@ -12,7 +12,12 @@ void print_array(int *a, int n)
 
 	for (i = 0; i < n; i++)
 	{
-		_putchar('0' + a[i]);
+		int j;
+
+		for (j = 0; j < 26; j++)
+		{
+			_putchar('0' + a[i]);
+		}
 
 		if (i != n - 1)
 		{
