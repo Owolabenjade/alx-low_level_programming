@@ -1,5 +1,15 @@
 #include <stdio.h>
 
+/*
+* Add your line of code here...
+* Remember:
+* - you are not allowed to use the variable 'a'
+* - you are not allowed to modify the variable 'p'
+* - only one statement
+* - you are not allowed to use a comma
+* - you are not allowed to code anything else than this line of code
+*/
+
 int main(void)
 {
 	int n;
@@ -8,10 +18,9 @@ int main(void)
 
 	a[2] = 1024;
 	p = &n;
-
-	/* Add this line of code before the semicolon */
 	*(p + 5) = 98;
 
-	printf("a[2] = %d\n", a[2]);
+	printf("a[2] = %d\n", a[2]); /* ...so that this prints "a[2] = 98" followed by a new line */
+
 	return (0);
 }
