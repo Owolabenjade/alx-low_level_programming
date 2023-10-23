@@ -1,23 +1,22 @@
 #include "main.h"
 #include <stdio.h>
 
-/**
- * main - Entry point.
- *
- * Return: Always 0.
- */
 int main(void)
 {
 	char str[] = "Hello, World!";
-	char character = 'o';
+	char *result;
 
-	char *result = _strchr(str, character);
+	result = _strchr(str, 'W');
 
-	if (result != NULL) {
-		printf("Character '%c' found at position: %ld\n", character, result - str);
-	} else {
-		printf("Character '%c' not found in the string.\n", character);
+	if (result != NULL)
+	{
+		_putchar(*result);
 	}
+	else
+	{
+		_putchar('N');  /* Character not found */
+	}
+	_putchar('\n');
 
 	return (0);
 }
