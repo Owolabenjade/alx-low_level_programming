@@ -8,10 +8,10 @@
 int _atoi(char *s)
 {
 	int result = 0;
-	int sign = 1; /* To track the sign of the number, 1 for positive, -1 for negative */
+	int sign = 1;
 	int i = 0;
 
-	if (s[0] == '-')  /* Check for leading '+' or '-' */
+	if (s[0] == '-')
 	{
 		sign = -1;
 		i++;
@@ -23,15 +23,16 @@ int _atoi(char *s)
 
 	while (s[i] != '\0')
 	{
-		if (s[i] >= '0' && s[i] <= '9') /* Check if the character is a digit */
+		if (s[i] >= '0' && s[i] <= '9')
 		{
 			result = result * 10 + (s[i] - '0');
 		}
 		else
 		{
-			break; /* If a non-digit character is encountered, stop parsing */
+			break;
 		}
 		i++;
 	}
-	return result (* sign); /* Apply the sign to the result */
+
+	return result * sign;
 }
