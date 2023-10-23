@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h> /* Include <stddef.h> to define NULL */
 
 /**
  * _strchr - Locate the first occurrence of a character in a string
@@ -17,5 +18,5 @@ char *_strchr(char *s, char c)
 		s++;
 	}
 
-	return (*s == c) ? s : NULL;
+	return NULL; /* Return NULL when the character is not found */
 }
