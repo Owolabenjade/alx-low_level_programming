@@ -1,5 +1,12 @@
 #include "main.h"
 #include <stdio.h>
+#include <unistd.h> /* Include the necessary header for the write function */
+
+/**
+ * _putchar - Write a character to stdout
+ * @c: The character to write
+ * Return: The number of characters written
+ */
 
 int main(void)
 {
@@ -19,4 +26,9 @@ int main(void)
 	_putchar('\n');
 
 	return (0);
+}
+
+int _putchar(char c)
+{
+	return write(1, &c, 1); /* Use the 'write' system call to write the character to stdout */
 }
