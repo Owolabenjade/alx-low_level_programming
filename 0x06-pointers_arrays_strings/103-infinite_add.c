@@ -1,4 +1,4 @@
-
+#include "main.h"
 /**
  * infinite_add - Adds two positive numbers represented as strings and stores the result.
  * @n1: The first number as a string.
