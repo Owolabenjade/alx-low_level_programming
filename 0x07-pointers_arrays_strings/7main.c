@@ -1,29 +1,19 @@
 #include "main.h"
 
-/**
- * _putchar - Write a character to standard output
- * @c: The character to print
- * Return: 1 (Success), -1 (Failure)
- */
-int _putchar(char c)
+int main(void)
 {
-	return write(1, &c, 1);
-}
+	char chessboard[8][8] = {
+		{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+		{'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+		{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+		{'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}
+	};
 
-/**
- * print_chessboard - Print a chessboard
- * @a: 2D array representing the chessboard
- */
-void print_chessboard(char (*a)[8])
-{
-	int i, j;
+	print_chessboard(chessboard);
 
-	for (i = 0; i < 8; i++)
-	{
-		for (j = 0; j < 8; j++)
-		{
-			_putchar(a[i][j]);
-		}
-		_putchar('\n');
-	}
+	return (0);
 }
