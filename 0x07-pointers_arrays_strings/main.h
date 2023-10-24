@@ -2,9 +2,7 @@
 #define MAIN_H
 #include <stdio.h>
 
-void print_diagsums(int *a, int size);
-
-#include <unistd.h>
+void print_diagsums(int *a, int size)
 
 int _putchar(char c);
 void print_chessboard(char (*a)[8]);
