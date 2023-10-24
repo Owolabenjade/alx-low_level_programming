@@ -27,4 +27,7 @@ char *_strpbrk(char *s, char *accept);
 int _putchar(char c);
 char *_strstr(char *haystack, char *needle);
 
+void set_string(char **s, char *to);
+int _putchar(char c);
+
 #endif /* MAIN_H */
