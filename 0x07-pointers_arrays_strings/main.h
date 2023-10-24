@@ -16,4 +16,9 @@ char *_strpbrk(char *s, char *accept);
 int _putchar(char c);
 char *_strstr(char *haystack, char *needle);
 
+#include <unistd.h>
+
+int _putchar(char c);
+void print_chessboard(char (*a)[8]);
+
 #endif /* MAIN_H */
