@@ -3,11 +3,11 @@
 
 int main(void)
 {
-	char str[] = "1234567890";
-	char accept[] = "1234567890";
-	unsigned int len = _strspn(str, accept);
+		char str[] = "Hello, World!";
+		char accept[] = "Helo,Wrld"; /* Characters to accept */
 
-	printf("Length of the prefix substring: %u\n", len);
+		unsigned int length = _strspn(str, accept);
+		printf("Length of prefix substring: %u\n", length);
 
-	return 0;
+	   return (0);
 }
