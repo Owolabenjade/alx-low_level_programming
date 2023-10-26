@@ -19,9 +19,10 @@
 int is_palindrome(char *s)
 {
 	int length = _strlen(s);
+	
 	if (length <= 1)
 	{
-		return 1; /* Empty or single-character string is a palindrome */
+		return (1); /* Empty or single-character string is a palindrome */
 	}
 	return (check_palindrome(s, length));
 }
