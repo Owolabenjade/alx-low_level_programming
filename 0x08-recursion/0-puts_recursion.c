@@ -1,15 +1,21 @@
-#include "main.h"
+#include <stdio.h>
+#include "main.h" // Include the header file
 
 /**
- * main - Entry point of the program
+ * puts_recursion.c
  *
- * Return: Always 0 (Success)
+ * This source file contains the implementation of the _puts_recursion function.
+ * It includes the main header file to access the function prototype for _puts_recursion.
+ * The _puts_recursion function recursively prints a string followed by a newline, without using loops.
  */
-int main(void)
+ 
+void _puts_recursion(char *s)
 {
-	char *str = "Hello, world!";
+	if (*s == '\0') {
+		putchar('\n');
+		return;
+	}
 
-	_puts_recursion(str);
-
-	return (0);
+	putchar(*s);
+	_puts_recursion(s + 1);
 }
