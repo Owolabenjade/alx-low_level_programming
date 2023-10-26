@@ -5,7 +5,7 @@
  * @s1: The first string to be compared.
  * @s2: The second string that may contain '*' as a wildcard.
  *
- * This function compares two strings, 's1' and 's2', with 
+ * This function compares two strings, 's1' and 's2', with
  * 's2' possibly containing
  * '*' as a wildcard character. The '*' character can match any
  * string (including an empty string). The function uses
