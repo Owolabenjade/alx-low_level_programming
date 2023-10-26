@@ -9,7 +9,7 @@
  * until the end of the string is reached. It adds a newline character at
  * the end to create a newline in the output.
  * This source file contains the implementation of the _puts_recursion function
- * It includes the main header file to access the 
+ * It includes the main header file to access the
  * function prototype for _puts_recursion.
  * The _puts_recursion function recursively prints
  * a string followed by a newline, without using loops.
