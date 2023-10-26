@@ -19,10 +19,10 @@
 int _sqrt_recursion(int n)
 {
     if (n < 0)
-	{
-        return (-1); /* Error: Negative number, no natural square root */
+    {
+	return (-1); /* Error: Negative number, no natural square root */
     }
-    return (_sqrt_recursive_helper(n, 1));
+	return (_sqrt_recursive_helper(n, 1));
 }
 
 /**
