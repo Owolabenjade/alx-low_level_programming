@@ -1,12 +1,15 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
- * _putchar - Writes a character to stdout
- * @c: The character to print
+ * main - Entry point of the program
  *
- * Return: On success, 1. On error, -1, and errno is set appropriately.
+ * Return: Always 0 (Success)
  */
-int _putchar(char c)
+int main(void)
 {
-	return write(1, &c, 1);
+	char *str = "Hello, world!";
+
+	_puts_recursion(str);
+
+	return (0);
 }
