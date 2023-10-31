@@ -2,7 +2,7 @@
 /**
  * _strdup - Duplicates a string and returns a pointer to the copy.
  * @str: The string to be duplicated.
- * 
+ *
  * Description: This function takes a string as input and creates a
  * duplicate of it by
  * allocating memory using malloc. It returns a pointer to
