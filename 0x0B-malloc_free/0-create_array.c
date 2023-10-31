@@ -16,18 +16,19 @@
  * or 'size' is 0, it returns NULL.
  */
 char *create_array(unsigned int size, char c)
-{
+}
 	char *array; /* Declare the array pointer at the start of the function */
+	unsigned int i; /* Declare the loop counter here */
 
 	if (size == 0)
-	return (NULL);
-	
+		return (NULL);
+
 	array = (char *)malloc(size * sizeof(char)); /* Allocate memory */
 
 	if (array == NULL)
-	return (NULL);
+		return (NULL);
 
-	for (unsigned int i = 0; i < size; i++) /* Initialize the array */
+	for (i = 0; i < size; i++) /* Initialize the array */
 	{
 		array[i] = c;
 	}
