@@ -1,9 +1,9 @@
 /*
- * char *str_concat: Concatenates two strings and returns a newly allocated string.
+ * str_concat: Concatenates two strings and returns a newly allocated string.
  * @s1: The first string to be concatenated.
  * @s2: The second string to be concatenated.
  *
- * Description: This function takes two strings as
+ * Description: The *str_concat function takes two strings as
  * input and concatenates them, creating a
  * new string that contains the combined contents of
  * 's1' followed by 's2'. Memory for the
