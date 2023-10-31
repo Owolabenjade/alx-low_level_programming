@@ -16,7 +16,7 @@
  * or 'size' is 0, it returns NULL.
  */
 char *create_array(unsigned int size, char c)
-}
+{
 	char *array; /* Declare the array pointer at the start of the function */
 	unsigned int i; /* Declare the loop counter here */
 
