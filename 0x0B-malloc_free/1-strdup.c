@@ -15,12 +15,12 @@
 
 char *_strdup(char *str)
 {
-	if (str == NULL)
-		return (NULL);
-
 	char *duplicate;
 	unsigned int length = 0;
 	unsigned int i; /* Declare loop counter here */
+
+	if (str == NULL)
+		return (NULL);
 
 	while (str[length] != '\0')
 		length++;
