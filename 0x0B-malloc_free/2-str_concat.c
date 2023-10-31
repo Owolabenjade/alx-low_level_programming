@@ -1,5 +1,5 @@
 /*
- * str_concat: Concatenates two strings and returns a newly allocated string.
+ * str_concat - Concatenates two strings and returns a newly allocated string.
  * @s1: The first string to be concatenated.
  * @s2: The second string to be concatenated.
  *
