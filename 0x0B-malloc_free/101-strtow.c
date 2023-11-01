@@ -31,59 +31,59 @@ char **strtow(char *str)
 		char **words = NULL;
 			char *token, *copy, *tmp;
 				int word_count = 0;
+					int i;
 
-					if (str == NULL || str[0] == '\0')
-								return (NULL);
+						if (str == NULL || str[0] == '\0')
+									return (NULL);
 
-						copy = strdup(str);
-							if (copy == NULL)
-										return (NULL);
+							copy = strdup(str);
+								if (copy == NULL)
+											return (NULL);
 
-								tmp = copy;
+									tmp = copy;
 
-									while ((token = strtok(tmp, " ")) != NULL)
-											{
-														word_count++;
-																tmp = NULL;
-																	}
+										while ((token = strtok(tmp, " ")) != NULL)
+												{
+															word_count++;
+																	tmp = NULL;
+																		}
 
-										free(copy);
+											free(copy);
 
-											if (word_count == 0)
-														return (NULL);
+												if (word_count == 0)
+															return (NULL);
 
-												words = (char **)malloc((word_count + 1) * sizeof(char *));
-													if (words == NULL)
-																return (NULL);
+													words = (char **)malloc((word_count + 1) * sizeof(char *);
+																if (words == NULL)
+																		return (NULL);
 
-														tmp = strdup(str);
+																			tmp = strdup(str);
 
-															if (tmp == NULL)
-																	{
-																				free(words);
-																						return (NULL);
-																							}
+																				if (tmp == NULL)
+																					{
+																							free(words);
+																									return (NULL);
+																										}
 
-																word_count = 0;
+																											i = 0;
+																												token = strtok(tmp, " ");
+																													while (token != NULL)
+																														{
+																																words[i] = strdup(token);
+																																		if (words[i] == NULL)
+																																				{
+																																							for (i = 0; i < word_count; i++)
+																																											free(words[i]);
+																																										free(words);
+																																													free(tmp);
+																																																return (NULL);
+																																																		}
+																																				i++;
+																																						token = strtok(NULL, " ");
+																																							}
 
-																	token = strtok(tmp, " ");
-																		while (token != NULL)
-																				{
-																							words[word_count] = strdup(token);
-																									if (words[word_count] == NULL)
-																												{
-																																for (int i = 0; i < word_count; i++)
-																																					free(words[i]);
-																																			free(words);
-																																						free(tmp);
-																																									return (NULL);
-																																											}
-																											word_count++;
-																													token = strtok(NULL, " ");
-																														}
+														words[i] = NULL;
+															free(tmp);
 
-																			words[word_count] = NULL;
-																				free(tmp);
-
-																					return (words);
+																return (words);
 }
