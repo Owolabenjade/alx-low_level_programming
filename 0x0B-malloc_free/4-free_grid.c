@@ -19,15 +19,17 @@
  *        * to avoid memory leaks. If the grid is NULL or the height is less than or equal to 0,
  *         * the function has no effect.
  *          */
+
 void free_grid(int **grid, int height)
 {
 		if (grid != NULL && height > 0)
 				{
-							for (int i = 0; i < height; i++)
-										{
-														if (grid[i] != NULL)
-																			free(grid[i]);
-																}
-									free(grid);
-										}
+							int i;
+									for (i = 0; i < height; i++)
+												{
+																if (grid[i] != NULL)
+																					free(grid[i]);
+																		}
+											free(grid);
+												}
 }
