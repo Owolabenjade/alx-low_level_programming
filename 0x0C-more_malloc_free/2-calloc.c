@@ -5,7 +5,7 @@
  * _calloc - Allocates memory for an array and initializes to zero
  * @nmemb: Number of elements in the array
  * @size: Size in bytes of each element
- * 
+ *
  * Description:
  * This function allocates memory for an array of 'nmemb' elements, each of
  * 'size' bytes, and initializes the memory to zero. If 'nmemb' or 'size' is
@@ -14,23 +14,24 @@
  *
  * Return: A pointer to the newly allocated and initialized memory or 'NULL' on
  * failure.
-*/
+ */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *ptr;
-	unsigned int total_size;
+	unsigned int i;
+	char *cptr;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		return NULL;
 
-	total_size = nmemb * size;
-	ptr = malloc(total_size);
+	ptr = malloc(nmemb * size);
 
 	if (ptr == NULL)
-		return (NULL);
+		return NULL;
 
-	for (unsigned int i = 0; i < total_size; i++)
-		*((char *)ptr + i) = 0;
+	cptr = (char *)ptr;
+	for (i = 0; i < nmemb * size; i++)
+		cptr[i] = 0;
 
 	return (ptr);
 }
