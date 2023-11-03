@@ -2,12 +2,7 @@
 #define MAIN_H
 
 void *malloc_checked(unsigned int b);
-
-#include <stdio.h>
-
-int _putchar(char c);
-int is_positive_number(const char *str);
-unsigned int multiply(unsigned int num1, unsigned int num2);
+int is_positive_number(char *str);
 
 #include <stdlib.h>
 
