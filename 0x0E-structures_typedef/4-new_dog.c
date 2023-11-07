@@ -11,35 +11,37 @@
  *       */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-		dog_t *new_dog_ptr;
-			char *name_copy, *owner_copy;
+		if (name == NULL || owner == NULL)
+					return (NULL); /* Return NULL if name or owner is NULL */
 
-				/* Allocate memory for the new dog structure */
-				new_dog_ptr = malloc(sizeof(dog_t));
+			dog_t *new_dog_ptr;
+				char *name_copy, *owner_copy;
+					/* Allocate memory for the new dog structure */
+					new_dog_ptr = malloc(sizeof(dog_t));
 
-					if (new_dog_ptr == NULL)
-								return (NULL); /* Return NULL if memory allocation fails */
+						if (new_dog_ptr == NULL)
+									return (NULL); /* Return NULL if memory allocation fails */
 
-						/* Allocate memory for name and owner copies */
-						name_copy = malloc(strlen(name) + 1);
-							owner_copy = malloc(strlen(owner) + 1);
+							/* Allocate memory for name and owner copies */
+							name_copy = malloc(strlen(name) + 1);
+								owner_copy = malloc(strlen(owner) + 1);
 
-								if (name_copy == NULL || owner_copy == NULL)
-										{
-													free(new_dog_ptr); /* Clean up if memory allocation fails */
-															free(name_copy);
-																	free(owner_copy);
-																			return (NULL);
-																				}
+									if (name_copy == NULL || owner_copy == NULL)
+											{
+														free(new_dog_ptr); /* Clean up if memory allocation fails */
+																free(name_copy);
+																		free(owner_copy);
+																				return (NULL);
+																					}
 
-									/* Copy name and owner to the allocated memory */
-									strcpy(name_copy, name);
-										strcpy(owner_copy, owner);
+										/* Copy name and owner to the allocated memory */
+										strcpy(name_copy, name);
+											strcpy(owner_copy, owner);
 
-											/* Initialize the new dog structure */
-											new_dog_ptr->name = name_copy;
-												new_dog_ptr->age = age;
-													new_dog_ptr->owner = owner_copy;
+												/* Initialize the new dog structure */
+												new_dog_ptr->name = name_copy;
+													new_dog_ptr->age = age;
+														new_dog_ptr->owner = owner_copy;
 
-														return (new_dog_ptr);
+															return (new_dog_ptr);
 }
