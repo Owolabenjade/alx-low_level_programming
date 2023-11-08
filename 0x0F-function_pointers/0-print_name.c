@@ -11,8 +11,13 @@
  * by 'f'. If 'name' or 'f' is NULL, the function
  *         * does nothing.
  *          */
+
+#include "function_pointers.h"
+
 void print_name(char *name, void (*f)(char *))
 {
-	if (name && f)
-	f(name);
+	if (name != NULL && f != NULL)
+	{
+		f(name);
+	}
 }
