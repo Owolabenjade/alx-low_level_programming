@@ -1,17 +1,33 @@
-#include <stdio.h>
 #include "function_pointers.h"
+#include <stdio.h>
 
-/* Example function that prints a string */
-void print_string(char *str)
+void print_normal(char *str)
 {
-		printf("Name: %s\n", str);
+	printf("%s\n", str);
+}
+
+void print_upper(char *str)
+{
+	while (*str)
+	{
+		if (*str >= 'a' && *str <= 'z')
+			putchar(*str - 32);
+		else
+			putchar(*str);
+		str++;
+	}
+	putchar('\n');
 }
 
 int main(void)
 {
-		char *name = "John Doe";
+	char name[] = "John";
 
-			print_name(name, print_string);
+	printf("Original name: ");
+	print_name(name, print_normal);
 
-				return (0);
+	printf("Uppercase name: ");
+	print_name(name, print_upper);
+
+	return (0);
 }
