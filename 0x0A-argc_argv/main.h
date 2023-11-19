@@ -18,4 +18,7 @@ int main(int argc, char *argv[]);
 int is_positive_number(char *str);
 int main(int argc, char *argv[]);
 
+int min_coins(int cents);
+int main(int argc, char *argv[]);
+
 #endif /* MAIN_H */
