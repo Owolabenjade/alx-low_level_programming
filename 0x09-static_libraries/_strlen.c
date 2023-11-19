@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _strlen.c */
 #include "main.h"
 
-int _putchar(char c)
+int _strlen(char *s)
 {
 	/* Your implementation */
 }

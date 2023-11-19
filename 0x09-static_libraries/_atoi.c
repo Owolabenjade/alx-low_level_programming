@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _atoi.c */
 #include "main.h"
 
-int _putchar(char c)
+int _atoi(char *s)
 {
 	/* Your implementation */
 }

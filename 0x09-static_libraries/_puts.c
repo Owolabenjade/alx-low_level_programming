@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _puts.c */
 #include "main.h"
 
-int _putchar(char c)
+void _puts(char *s)
 {
 	/* Your implementation */
 }

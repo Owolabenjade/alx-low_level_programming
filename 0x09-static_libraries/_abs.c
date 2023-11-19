@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _abs.c */
 #include "main.h"
 
-int _putchar(char c)
+int _abs(int n)
 {
 	/* Your implementation */
 }

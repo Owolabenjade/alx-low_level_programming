@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _isdigit.c */
 #include "main.h"
 
-int _putchar(char c)
+int _isdigit(int c)
 {
 	/* Your implementation */
 }

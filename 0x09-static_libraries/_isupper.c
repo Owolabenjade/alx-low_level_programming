@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _isupper.c */
 #include "main.h"
 
-int _putchar(char c)
+int _isupper(int c)
 {
 	/* Your implementation */
 }

@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _strchr.c */
 #include "main.h"
 
-int _putchar(char c)
+char *_strchr(char *s, char c)
 {
 	/* Your implementation */
 }

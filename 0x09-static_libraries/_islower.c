@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _islower.c */
 #include "main.h"
 
-int _putchar(char c)
+int _islower(int c)
 {
 	/* Your implementation */
 }

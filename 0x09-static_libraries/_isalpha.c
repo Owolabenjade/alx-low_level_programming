@@ -1,7 +1,7 @@
-/* _putchar.c */
+/* _isalpha.c */
 #include "main.h"
 
-int _putchar(char c)
+int _isalpha(int c)
 {
 	/* Your implementation */
 }
