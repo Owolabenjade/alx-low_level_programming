@@ -15,4 +15,7 @@ int main(int argc, char *argv[]);
 int multiply(int a, int b);
 int main(int argc, char *argv[]);
 
+int is_positive_number(char *str);
+int main(int argc, char *argv[]);
+
 #endif /* MAIN_H */
