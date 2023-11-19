@@ -57,6 +57,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		int result = min_coins(cents);
+	
 		printf("%d\n", result);
 	}
 
