@@ -12,4 +12,7 @@ int whatsmyname(void);
 void print_arguments(int argc, char *argv[]);
 int main(int argc, char *argv[]);
 
+int multiply(int a, int b);
+int main(int argc, char *argv[]);
+
 #endif /* MAIN_H */
