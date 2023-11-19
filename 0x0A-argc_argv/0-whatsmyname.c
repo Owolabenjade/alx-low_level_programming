@@ -3,10 +3,10 @@
 #include <stdio.h>
 
 /**
- *main - Entry point of the program
+ *whatsamyname - Entry point of the program
  *Return: Always 0
 */
-int main(void)
+int whatsmyname(void)
 {
 		printf("%s\n", __FILE__);
 			return (0);
