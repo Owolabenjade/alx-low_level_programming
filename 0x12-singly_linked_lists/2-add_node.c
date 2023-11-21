@@ -12,13 +12,13 @@
 */
 list_t *add_node(list_t **head, const char *str)
 {
+	/* Declare the new node pointer at the beginning of the block */
+	list_t *new_node;
+
 	/* Check for invalid input */
 	if (str == NULL || head == NULL)
 		return (NULL);
 	
-	/* Declare the new node pointer at the beginning of the block */
-	list_t *new_node;
-
 	/* Allocate memory for the new node */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
