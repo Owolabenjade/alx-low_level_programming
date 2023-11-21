@@ -9,6 +9,7 @@
 typedef struct list_s
 {
 	char *str;
+	size_t len;  /* Add the length variable */
 	struct list_s *next;
 } list_t;
 
