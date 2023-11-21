@@ -15,9 +15,12 @@ list_t *add_node(list_t **head, const char *str)
 	/* Check for invalid input */
 	if (str == NULL || head == NULL)
 		return (NULL);
+	
+	/* Declare the new node pointer at the beginning of the block */
+	list_t *new_node;
 
 	/* Allocate memory for the new node */
-	list_t *new_node = malloc(sizeof(list_t));
+	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
 		return (NULL);
 
@@ -26,7 +29,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_node->str == NULL)
 	{
 		free(new_node);
-		return NULL;
+		return (NULL);
 	}
 
 	/* Update the next pointer of the new node to point to the current head */
