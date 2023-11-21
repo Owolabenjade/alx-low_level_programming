@@ -18,7 +18,7 @@ list_t *add_node(list_t **head, const char *str)
 	/* Check for invalid input */
 	if (str == NULL || head == NULL)
 		return (NULL);
-	
+
 	/* Allocate memory for the new node */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
@@ -31,6 +31,9 @@ list_t *add_node(list_t **head, const char *str)
 		free(new_node);
 		return (NULL);
 	}
+	
+	/* Set the length of the string */
+	new_node->len = strlen(str);
 
 	/* Update the next pointer of the new node to point to the current head */
 	new_node->next = *head;
