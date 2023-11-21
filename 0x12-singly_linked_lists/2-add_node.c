@@ -1,3 +1,5 @@
+/* 2-add_node.c */
+
 #include "lists.h"
 #include <stdlib.h> /* for malloc, free */
 #include <string.h> /* for strdup */
@@ -10,7 +12,8 @@
 */
 list_t *add_node(list_t **head, const char *str)
 {
-	if (str == NULL)
+	/* Check for invalid input */
+	if (str == NULL || head == NULL)
 		return (NULL);
 
 	/* Allocate memory for the new node */
@@ -23,7 +26,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (new_node->str == NULL)
 	{
 		free(new_node);
-		return (NULL);
+		return NULL;
 	}
 
 	/* Update the next pointer of the new node to point to the current head */
