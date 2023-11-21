@@ -1,5 +1,3 @@
-/* lists.h */
-
 #ifndef LISTS_H
 #define LISTS_H
 
@@ -8,9 +6,9 @@
 /* Define the structure for a node in the list */
 typedef struct list_s
 {
-	char *str;
-	size_t len;  /* Add the length variable */
-	struct list_s *next;
+	char *str; /* String data in the node */
+	size_t len; /* Length of the string */
+	struct list_s *next; /* Pointer to the next node in the list */
 } list_t;
 
 /* Function prototype for printing the list */
