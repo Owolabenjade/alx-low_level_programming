@@ -1,6 +1,6 @@
 #include "main.h"
-#include <fcntl.h>  // Include for open function
-#include <unistd.h> // Include for close and write functions
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  *create_file - Creates a file with the specified content.
@@ -27,8 +27,8 @@ int create_file(const char *filename, char *text_content)
 		while (text_content[text_len] != '\0')
 			text_len++;
 
-		write_status = write(file_descriptor, text_content, text_len);
-		if (write_status == -1)
+		write_result = write(file_descriptor, text_content, text_length);
+		if (write_result == -1 || write_result != text_length)
 		{
 			close(file_descriptor);
 			return (-1);
