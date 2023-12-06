@@ -10,14 +10,14 @@
 */
 int create_file(const char *filename, char *text_content)
 {
-	int file_descriptor, write_result;
+	int file_desc, write_result;
 	size_t text_length;
 
 	if (filename == NULL)
 		return (-1);
 
-	file_descriptor = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-	if (file_descriptor == -1)
+	file_desc = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	if (file_desc == -1)
 		return (-1);
 
 	if (text_content != NULL)
@@ -26,14 +26,14 @@ int create_file(const char *filename, char *text_content)
 		while (text_content[text_length] != '\0')
 			text_length++;
 
-		write_result = write(file_descriptor, text_content, text_length);
+		write_result = write(file_desc, text_content, text_length);
 		if (write_result == -1 || (size_t)write_result != text_length)
 		{
-			close(file_descriptor);
+			close(file_desc);
 			return (-1);
 		}
 	}
 
-	close(file_descriptor);
+	close(file_desc);
 	return (1);
 }
