@@ -1,4 +1,6 @@
-nclude "main.h"
+#include "main.h"
+
+#define BUFFER_SIZE 1024
 
 /**
  *  * error_exit - Exits the program with an error code and prints an error message.
@@ -63,4 +65,21 @@ void copy_file(const char *file_from, const char *file_to)
 
 									if (close(fd_to) == -1)
 												error_exit(100, "Can't close fd %d", fd_to);
+}
+
+/**
+ *  * main - Entry point.
+ *   * @argc: The number of arguments.
+ *    * @argv: The array of arguments.
+ *     *
+ *      * Return: 0 on success, otherwise exit with the specified error codes.
+ *       */
+int main(int argc, char **argv)
+{
+		if (argc != 3)
+					error_exit(97, "Usage: cp file_from file_to");
+
+			copy_file(argv[1], argv[2]);
+
+				return (0);
 }
