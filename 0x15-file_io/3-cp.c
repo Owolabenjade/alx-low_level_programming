@@ -1,6 +1,5 @@
 #include "main.h"
-
-#define BUFFER_SIZE 1024
+#include <stdio.h>
 
 /**
  *  * error_exit - Exits the program with an error code and prints an error message.
