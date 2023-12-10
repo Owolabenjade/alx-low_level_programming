@@ -9,7 +9,8 @@
 int main(int argc, char *argv[])
 {
 		int fd;
-			ElfHeader header;
+int i;
+		ElfHeader header;
 
 				if (argc != 2)
 						{
@@ -59,7 +60,7 @@ int is_elf(ElfHeader header)
 void print_elf_header_info(ElfHeader header)
 {
 		printf("  Magic:   ");
-int i;
+
 		for (i = 0; i < EI_NIDENT; i++)
 						printf("%02x%s", header.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 
