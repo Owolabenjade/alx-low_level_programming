@@ -59,7 +59,8 @@ int is_elf(ElfHeader header)
 void print_elf_header_info(ElfHeader header)
 {
 		printf("  Magic:   ");
-			for (int i = 0; i < EI_NIDENT; i++)
+int i;
+		for (i = 0; i < EI_NIDENT; i++)
 						printf("%02x%s", header.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 
 				printf("  Class:                             %s\n", get_class(header.e_ident[EI_CLASS]));
