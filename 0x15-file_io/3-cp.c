@@ -1,84 +1,49 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- *  * error_exit - Exits the program with an error code and prints an error message.
- *   * @code: The exit code.
- *    * @message: The error message format.
- *     * @...: Additional arguments for the error message format.
+ *  * main - Entry point
+ *   * @argc: Argument count
+ *    * @argv: Argument vector
+ *     * Return: 0 on success
  *      */
-void error_exit(int code, const char *message, ...)
+int main(int argc, char *argv[])
 {
-		va_list args;
-			va_start(args, message);
-				dprintf(STDERR_FILENO, "Error: ");
-					vdprintf(STDERR_FILENO, message, args);
-						dprintf(STDERR_FILENO, "\n");
-							va_end(args);
-								exit(code);
-}
+		int fd_from, fd_to, read_bytes, write_bytes;
+			char buffer[1024];
+				mode_t permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 
-/**
- *  * copy_file - Copies the content of a file to another file.
- *   * @file_from: The source file.
- *    * @file_to: The destination file.
- *     */
-void copy_file(const char *file_from, const char *file_to)
-{
-		int fd_from, fd_to, read_result, write_result;
-			char buffer[BUFFER_SIZE];
+					if (argc != 3)
+								dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 
-				fd_from = open(file_from, O_RDONLY);
-					if (fd_from == -1)
-								error_exit(98, "Can't read from file %s", file_from);
+						fd_from = open(argv[1], O_RDONLY);
+							if (fd_from == -1)
+										dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 
-						fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-							if (fd_to == -1)
-									{
-												close(fd_from);
-														error_exit(99, "Can't write to file %s", file_to);
-															}
+								fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, permissions);
+									if (fd_to == -1)
+												dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 
-								do
-										{
-													read_result = read(fd_from, buffer, BUFFER_SIZE);
-															if (read_result == -1)
-																		{
-																						close(fd_from);
-																									close(fd_to);
-																												error_exit(98, "Can't read from file %s", file_from);
-																														}
+										while ((read_bytes = read(fd_from, buffer, 1024)) > 0)
+												{
+															write_bytes = write(fd_to, buffer, read_bytes);
+																	if (write_bytes == -1 || read_bytes != write_bytes)
+																				{
+																								dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+																											exit(99);
+																													}
+																		}
 
-																	write_result = write(fd_to, buffer, read_result);
-																			if (write_result == -1 || write_result != read_result)
-																						{
-																										close(fd_from);
-																													close(fd_to);
-																																error_exit(99, "Can't write to file %s", file_to);
-																																		}
+											if (read_bytes == -1)
+													{
+																dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+																		exit(98);
+																			}
 
-																				} while (read_result > 0);
+												if (close(fd_from) == -1)
+															dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 
-									if (close(fd_from) == -1)
-												error_exit(100, "Can't close fd %d", fd_from);
+													if (close(fd_to) == -1)
+																dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 
-									if (close(fd_to) == -1)
-												error_exit(100, "Can't close fd %d", fd_to);
-}
-
-/**
- *  * main - Entry point.
- *   * @argc: The number of arguments.
- *    * @argv: The array of arguments.
- *     *
- *      * Return: 0 on success, otherwise exit with the specified error codes.
- *       */
-int main(int argc, char **argv)
-{
-		if (argc != 3)
-					error_exit(97, "Usage: cp file_from file_to");
-
-			copy_file(argv[1], argv[2]);
-
-				return (0);
+														return (0);
 }
