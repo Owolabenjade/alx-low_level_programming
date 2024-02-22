@@ -12,6 +12,7 @@
 static hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *new_node = malloc(sizeof(hash_node_t));
+
 	if (new_node == NULL)
 		return (NULL);
 
@@ -40,6 +41,7 @@ static hash_node_t *create_node(const char *key, const char *value)
 static int update_value(hash_node_t *node, const char *value)
 {
 	char *new_value = strdup(value);
+
 	if (new_value == NULL)
 		return (0);
 
