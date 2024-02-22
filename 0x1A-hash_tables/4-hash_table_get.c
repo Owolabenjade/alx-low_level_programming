@@ -10,27 +10,27 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-    unsigned long int index;
-    hash_node_t *current_node;
+	unsigned long int index;
+	hash_node_t *current_node;
 
-    /* Check for NULL hash table or empty key */
-    if (ht == NULL || key == NULL || *key == '\0')
-        return (NULL);
+	/* Check for NULL hash table or empty key */
+	if (ht == NULL || key == NULL || *key == '\0')
+		return (NULL);
 
-    /* Get the index using the key_index function */
-    index = key_index((const unsigned char *)key, ht->size);
+	/* Get the index using the key_index function */
+	index = key_index((const unsigned char *)key, ht->size);
 
-    /* Traverse the linked list at the computed index */
-    current_node = ht->array[index];
-    while (current_node != NULL)
-    {
-        /* If key is found, return the associated value */
-        if (strcmp(current_node->key, key) == 0)
-            return (current_node->value);
+	/* Traverse the linked list at the computed index */
+	current_node = ht->array[index];
+	while (current_node != NULL)
+	{
+		/* If key is found, return the associated value */
+		if (strcmp(current_node->key, key) == 0)
+			return (current_node->value);
 
-        current_node = current_node->next;
-    }
+		current_node = current_node->next;
+	}
 
-    /* Key not found */
-    return (NULL);
+	/* Key not found */
+	return (NULL);
 }
