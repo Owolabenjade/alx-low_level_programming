@@ -1,0 +1,12 @@
+# Enhanced Makefile for Task 1
+
+# Compiler to be used
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# The rule 'all' builds the executable
+all:
+	$(CC) $(SRC) -o school
+
