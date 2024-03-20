@@ -1,0 +1,39 @@
+# Advanced Makefile for Task 2
+
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# The all rule builds the executable
+all: $(NAME)
+
+# Rule to create the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# To turn .c files into .o files
+%.o: %.c
+	$(CC) -c $< -o $@
+
+# Clean objects
+clean:
+	rm -f $(OBJ)
+
+# Clean objects and executable
+fclean: clean
+	rm -f $(NAME)
+
+# Rebuild everything
+re: fclean all
+
+# Special rule to prevent problems with files named after rules
+.PHONY: all clean fclean re
+
