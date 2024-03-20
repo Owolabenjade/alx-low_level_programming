@@ -1,0 +1,6 @@
+# Simple Makefile for Task 0
+
+# The rule 'all' builds the executable
+all:
+	gcc main.c school.c -o school
+
