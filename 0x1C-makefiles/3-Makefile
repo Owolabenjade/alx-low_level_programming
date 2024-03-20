@@ -1,0 +1,47 @@
+# Sophisticated Makefile for Task 3
+
+# Compiler
+CC = gcc
+
+# Source files
+SRC = main.c school.c
+
+# Object files
+OBJ = $(SRC:.c=.o)
+
+# Executable name
+NAME = school
+
+# Remove command
+RM = rm -f
+
+# Rules
+
+# Rule 'all' builds the executable
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Compiling .c to .o files
+%.o: %.c
+	$(CC) -c $< -o $@
+
+# Clean: Remove Emacs/Vim temporary files and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Oclean: Remove object files
+oclean:
+	$(RM) $(OBJ)
+
+# Fclean: Remove Emacs/Vim temporary files, executable, and object files
+fclean: clean
+	$(RM) $(OBJ)
+
+# Re: Force recompilation of all source files
+re: fclean all
+
+# Special rule to ensure that make rules are executed even if files named after them exist
+.PHONY: all clean oclean fclean re
+
