@@ -1,0 +1,33 @@
+# Complex Makefile for Task 6
+
+# Compiler, source files, object files, executable name, and compiler flags
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Default rule for building the executable
+all: $(NAME)
+
+# Compile and link with single implicit rule usage
+$(NAME): $(SRC) m.h
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+
+# Clean: Remove Emacs/Vim temp files and executable
+clean:
+	/bin/rm -f *~ $(NAME)
+
+# Oclean: Remove object files
+oclean:
+	/bin/rm -f $(OBJ)
+
+# Fclean: Invoke clean and oclean
+fclean: clean oclean
+
+# Re: Force recompilation of all source files
+re: fclean all
+
+# Special rule to ensure certain rules are executed regardless of file names
+.PHONY: all clean fclean oclean re
+
