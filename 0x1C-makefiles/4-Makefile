@@ -1,0 +1,42 @@
+# Comprehensive Makefile for Task 4
+
+# Compiler and flags
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Source and object files, and executable name
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+# Program to delete files
+RM = rm -f
+
+# Default rule for building the executable
+all: $(NAME)
+
+# Compile .c to .o and link to executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
+
+# Pattern rule for object files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean: Remove Emacs/Vim temp files and executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Oclean: Remove object files
+oclean:
+	$(RM) $(OBJ)
+
+# Fclean: Remove Emacs/Vim temp files, executable, and object files
+fclean: clean oclean
+
+# Re: Force recompilation of all source files
+re: fclean all
+
+# Special rule to ensure certain rules are executed regardless of file names
+.PHONY: all clean fclean oclean re
+
