@@ -1,5 +1,6 @@
 #include "search_algos.h"
 #include <stdio.h>
+#include <math.h> /* for sqrt() */
 
 /**
  * interpolation_search - Searches for a value in a sorted array of integers
@@ -25,15 +26,18 @@ int interpolation_search(int *array, size_t size, int value)
                 return low;
             break;
         }
+        /*Calculate the position using the interpolation formula*/
         pos = low + (((double)(high - low) / (array[high] - array[low])) * (value - array[low]));
         
+        /*Check if position is out of range*/
         if (pos >= size)
         {
-            printf("Value checked array[%zu] is out of range\n", pos);
+            printf("Value checked array[%u] is out of range\n", (unsigned int)pos);
             return -1;
         }
 
-        printf("Value checked array[%zu] = [%d]\n", pos, array[pos]);
+        /*Output the value at the current position*/
+        printf("Value checked array[%u] = [%d]\n", (unsigned int)pos, array[pos]);
 
         if (array[pos] == value)
             return (int)pos;
