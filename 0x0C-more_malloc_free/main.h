@@ -3,6 +3,7 @@
 
 void *malloc_checked(unsigned int b);
 int is_positive_number(char *str);
+void *_calloc(unsigned int nmemb, unsigned int size);
 
 #include <stdlib.h>
 
