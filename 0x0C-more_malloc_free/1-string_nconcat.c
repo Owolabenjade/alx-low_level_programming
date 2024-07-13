@@ -1,52 +1,50 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * string_nconcat - Concatenates two strings with a specified length
- * @s1: The first string
- * @s2: The second string
- * @n: The maximum number of bytes to concatenate from s2
- * 
- * Description:
- * This function concatenates two strings, s1 and the first 'n' bytes of s2,
- * into a newly allocated memory space. If 'n' is greater than or equal to
- * the length of s2, the entire s2 is concatenated. If 's1' or 's2' is NULL,
- * they are treated as empty strings. The returned pointer points to the
- * concatenated string, and the function returns NULL on failure.
+ * string_nconcat - Concatenates two strings
+ * @s1: First string
+ * @s2: Second string
+ * @n: Number of bytes from s2 to concatenate
  *
- * Return: A pointer to the newly allocated concatenated string or NULL on
- * failure.
+ * Return: Pointer to newly allocated space in memory containing s1 followed
+ *         by the first n bytes of s2, null terminated. NULL if it fails.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *result;
-	unsigned int len1 = 0, len2 = 0, i;
+    char *concat;
+    unsigned int len1 = 0, len2 = 0, i, j;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+    /* Treat NULL as empty string */
+    if (s1 == NULL)
+        s1 = "";
+    if (s2 == NULL)
+        s2 = "";
 
-	while (s1[len1] != '\0')
-		len1++;
+    /* Get lengths of s1 and s2 */
+    while (s1[len1])
+        len1++;
+    while (s2[len2])
+        len2++;
 
-	while (s2[len2] != '\0')
-		len2++;
+    /* If n >= len2, use entire string s2 */
+    if (n >= len2)
+        n = len2;
 
-	if (n >= len2)
-		n = len2;
+    /* Allocate memory for new string */
+    concat = malloc(sizeof(char) * (len1 + n + 1));
+    if (concat == NULL)
+        return (NULL);
 
-	result = (char *)malloc(len1 + n + 1);
-	if (result == NULL)
-		return (NULL);
+    /* Copy s1 to new string */
+    for (i = 0; i < len1; i++)
+        concat[i] = s1[i];
 
-	for (i = 0; i < len1; i++)
-		result[i] = s1[i];
+    /* Copy n bytes of s2 to new string */
+    for (j = 0; j < n; j++, i++)
+        concat[i] = s2[j];
 
-	for (i = 0; i < n; i++)
-		result[len1 + i] = s2[i];
+    /* Null terminate the new string */
+    concat[i] = '\0';
 
-	result[len1 + n] = '\0';
-
-	return (result);
+    return (concat);
 }
