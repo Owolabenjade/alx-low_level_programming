@@ -30,3 +30,4 @@ char *_strcat(char *dest, char *src)
     /* Return pointer to dest */
     return dest;
 }
+
