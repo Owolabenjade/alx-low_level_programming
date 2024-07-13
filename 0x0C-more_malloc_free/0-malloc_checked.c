@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdio.h>
+
 /**
  * malloc_checked - Allocates memory using malloc
  * @b: The amount of memory to allocate
@@ -20,4 +22,14 @@ void *malloc_checked(unsigned int b)
 		exit(98);
 	}
 	return (ptr);
+}
+
+int main(void)
+{
+	char *c;
+
+	c = malloc_checked(1024);
+	printf("%d\n", 1024);  // Print the size we allocated
+	free(c);
+	return (0);
 }
