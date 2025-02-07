@@ -32,12 +32,12 @@ int interpolation_search(int *array, size_t size, int value)
 				printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
 
 				if (array[pos] == value)
-						return ((int)pos);
+					return ((int)pos);
 
 				if (array[pos] < value)
-						low = pos + 1;
+					low = pos + 1;
 				else
-						high = pos - 1;
+					high = pos - 1;
 		}
 
 		return (-1);
